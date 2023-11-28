@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en-in">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inox Movies</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script>
+        function Backbutton(){
+            document.getElementById("quickBooking").style.display = "block";
+            document.getElementById("btnBook").innerHTML = "Update";
+            document.getElementById("btnBook").className = "btn btn-success";
+        }
+
+        function BookClick(){
+
+            document.getElementById("summaryContainer").style.display = "block";
+            document.getElementById("quickBooking").style.display = "none";
+
+            document.getElementById("lblMovie").innerHTML = document.getElementById("lstMovie").value;
+            document.getElementById("lblCinemas").innerHTML = document.getElementById("lstCinemas").value;
+            document.getElementById("lblDate").innerHTML = document.getElementById("lstDate").value;
+            document.getElementById("lblTime").innerHTML = document.getElementById("lstTime").value;
+            document.getElementById("lblSeats").innerHTML = document.getElementById("lstSeats").value;
+
+            poster = document.getElementById("poster");
+            screen = "";
+            movieName = document.getElementById("lstMovie").value;
+
+            if (movieName=="Tiger-3") {
+                poster.src = "../public/images/T-3.jpeg"    
+                
+            }
+            else if (movieName=="Marvel") {
+                poster.src = "../public/images/Marvel.jpg"
+            }
+            else if (movieName=="Spider Man (Home Coming)") {
+                poster.src = "../public/images/Spiderman.jpeg"
+            }
+            else if (movieName=="Harry Potter") {
+                poster.src = "../public/images/Harry.jpeg"
+            }
+            else if (movieName=="saw") {
+                poster.src = "../public/images/saw.jpg"
+            }
+            else{
+                poster.src ="../public/images/none.jpg"
+                screen = "Screen - 3"
+            }
+
+            document.getElementById("lblScreen").innerHTML = screen;
+        }
+
+    </script>
+</head>
+<body class="container-fluid">
+    <h3 class="text-center m-2"> <font color="red" size="7"><b>Quick Booking</b></font></h3>
+   <header id="quickBooking">
+    <nav class="d-flex justify-content-between p-2 bg-dark text-white">
+        <div>
+            <select class="form-select" id="lstMovie">
+                <option>Select Movie</option>
+                <option>Tiger-3</option>
+                <option>Marvel</option>
+                <option>Spider Man (Home Coming)</option>
+                <option>Harry Potter</option>
+                <option>saw</option>
+            </select>
+        </div>
+        <div>
+            <select class="form-select" id="lstCinemas">
+                <option>Select Cinemas</option>
+                <option>Inox-GVK</option>
+                <option>AAA Cenemas</option>
+                <option>Jaswant Tuli</option>
+                <option>PVR Cinemas</option>
+            </select>
+        </div>
+        <div>
+            <select class="form-select" id="lstDate">
+                <option>Select Date</option>
+                <option>TODAY</option>
+                <option>TOMARROW</option>
+                <option>29, april</option>
+                <option>30, april</option>
+                <option>1, may</option>
+                <option>2, may</option>
+            </select>
+        </div>
+        <div>
+            <select class="form-select" id="lstTime">
+                <option>Select Time</option>
+                <option>10:30 AM</option>                
+                <option>13:30 AM</option>                
+                <option>16:30 PM</option>
+                <option>19:30 PM</option>
+                <option>22:30 PM</option>
+            </select>
+        </div>
+        <div>
+            <select class="form-select" id="lstSeats">
+                <option>Select Seats</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+            </select>
+        </div>
+        <div>
+            <button class="btn btn-danger" onclick="BookClick()" id="btnBook">Book Ticket</button>
+        </div>
+    </nav>
+   </header>
+    <section>
+        <div class="w-25" style="display: none;" id="summaryContainer">
+            <h2>Booking Summary</h2>
+            <div class="card p-2">
+                <img class="card-img-top" id="poster" height="200">
+                <div class="card-header">
+                    <dl>
+                        <dt>Movie</dt>
+                        <dd id="lblMovie"></dd>
+                        <dt>Cinemas</dt>
+                        <dd id="lblCinemas"></dd>
+                        <dt>Date</dt>
+                        <dd id="lblDate"></dd>
+                        <dt>Time</dt>
+                        <dd id="lblTime"></dd>
+                        <dt>Seats</dt>
+                        <dd id="lblSeats"></dd>
+                        <dt>Screen</dt>
+                        <dd id="lblScreen"></dd>
+                    </dl>
+                </div>
+            </div>
+            <button onclick="Backbutton()" class="btn btn-link">Modify Booking</button>
+        </div>
+    </section>
+    
+</body>
+</html>
